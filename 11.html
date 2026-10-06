@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belarus — Land of Lakes and Forests</title>
+
+  <!-- Встроенный CSS (CSS внутри HTML) -->
+  <style>
+    /* ===== Базовые настройки ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      line-height: 1.6;
+      color: #2c2c2c;
+      background: #f8f9fa;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ===== Навигация ===== */
+    header {
+      background: linear-gradient(135deg, #c8102e 0%, #a00d24 100%);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo::before {
+      content: "🇧🇾";
+      font-size: 1.8rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #00af66;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      position: relative;
+      color: white;
+      text-align: center;
+      padding: 9rem 2rem;
+      overflow: hidden;
+      background-image: url('https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-color: #c8102e;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(200, 16, 46, 0.75) 0%, rgba(0, 175, 102, 0.75) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      background: white;
+      color: #c8102e;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      background: #00af66;
+      color: white;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== Секции ===== */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #c8102e;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #00af66;
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    .section-text {
+      max-width: 900px;
+      margin: 2rem auto 0;
+      text-align: center;
+      color: #555;
+      font-size: 1.05rem;
+    }
+
+    /* ===== О стране ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .stat-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-top: 4px solid #00af66;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .stat-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #c8102e;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      color: #666;
+    }
+
+    /* ===== Государственные символы ===== */
+    .symbols-section {
+      background: #f0f4f7;
+      max-width: none;
+      padding: 5rem 2rem;
+    }
+
+    .symbols-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .symbol-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s;
+      border-bottom: 4px solid #c8102e;
+    }
+
+    .symbol-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .symbol-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .symbol-card h3 {
+      color: #c8102e;
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .symbol-card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* ===== Города ===== */
+    .cities {
+      background: #f8f9fa;
+      max-width: none;
+      padding: 5rem 2rem;
+    }
+
+    .cities-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .city-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .city-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .city-image img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .city-info {
+      padding: 1rem;
+    }
+
+    /* ===== Компоненты кухня ===== */
+    .cuisine {
+      background: #fff;
+      padding: 5rem 2rem;
+    }
+
+    .cuisine-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .cuisine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+
+    .dish {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    /* ===== Факты ===== */
+    .facts-section {
+      padding: 5rem 2rem;
+    }
+
+    .facts-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .fact-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.5rem 0;
+    }
+
+    .fact-number {
+      font-weight: bold;
+      color: #c8102e;
+      font-size: 1.2rem;
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ===== Встроенное видео прямо на странице =====
+       Делаем контейнер с адаптивным размером, чтобы iframe занимал всю доступную ширину и сохранял пропорции. */
+    .video-embed {
+      width: 100%;
+      max-width: 860px;
+      margin: 2rem auto 0;
+      position: relative;
+      padding-top: 56.25%; /* 16:9 aspect ratio */
+    }
+
+    .video-embed iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ===== Подвал ===== */
+    footer {
+      padding: 2rem;
+      text-align: center;
+      color: #666;
+    }
+
+    /* ===== Адаптив ===== */
+    @media (max-width: 768px) {
+      .hero { padding: 6rem 2rem; }
+      .city-image img { height: 150px; }
+      .video-embed { padding-top: 56.25%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <div class="logo">Belarus</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#symbols">Symbols</a></li>
+        <li><a href="#cities">Cities</a></li>
+        <li><a href="#cuisine">Cuisine</a></li>
+        <li><a href="#facts">Facts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Belarus</h1>
+      <p>A land of lakes, forests and rich history in the very heart of Europe</p>
+      <a href="#about" class="btn">Learn More</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="section-title">About the Country</h2>
+    <p class="section-subtitle">The Republic of Belarus — a state in Eastern Europe</p>
+
+    <div class="about-grid">
+      <div class="stat-card">
+        <div class="stat-icon">👥</div>
+        <div class="stat-number">9.2 million</div>
+        <div class="stat-label">population</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📐</div>
+        <div class="stat-number">207,600 km²</div>
+        <div class="stat-label">area</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🏞️</div>
+        <div class="stat-number">~11,000</div>
+        <div class="stat-label">lakes</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🌲</div>
+        <div class="stat-number">~40%</div>
+        <div class="stat-label">covered by forests</div>
+      </div>
+    </div>
+
+    <p class="section-text">
+      Belarus is a presidential republic located in Eastern Europe. The country has no access to the sea, but its territory is rich in rivers, lakes and marshes. Belarus borders Russia, Ukraine, Poland, Lithuania and Latvia. The capital is the city of Minsk. The official languages are Belarusian and Russian. The national currency is the Belarusian ruble.
+    </p>
+  </section>
+
+  <!-- State Symbols -->
+  <section id="symbols" class="symbols-section">
+    <h2 class="section-title">State Symbols</h2>
+    <p class="section-subtitle">Flag, emblem and anthem — symbols of the nation's sovereignty</p>
+
+    <div class="symbols-grid">
+      <div class="symbol-card">
+        <div class="symbol-icon">🇧🇾</div>
+        <h3>Flag</h3>
+        <p>The red color symbolizes freedom and the memory of a heroic past, while green stands for hope, spring and rebirth. The white ornament on the left is a symbol of ancient Belarusian culture and hard work.</p>
+      </div>
+      <div class="symbol-card">
+        <div class="symbol-icon">🌿</div>
+        <h3>Emblem</h3>
+        <p>The green outline of the country against a background of golden sunrays above the globe. It symbolizes sovereignty, territorial unity and peaceful skies over Belarus.</p>
+      </div>
+      <div class="symbol-card">
+        <div class="symbol-icon">🎵</div>
+        <h3>Anthem</h3>
+        <p>"We, the Belarusians" is the national anthem, glorifying the people, their unity and love for their native land. Its words and music reflect the country's historical journey.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cities -->
+  <section id="cities" class="cities">
+    <div class="cities-inner">
+      <h2 class="section-title">Cities</h2>
+      <p class="section-subtitle">Every city holds its own unique story</p>
+
+      <div class="cities-grid">
+        <div class="city-card">
+          <div class="city-image">
+            <img src="https://images.unsplash.com/photo-1596656343289-3a52e63d0a83?w=800&q=80" alt="National Library in Minsk" />
+          </div>
+          <div class="city-info">
+            <h3>Minsk</h3>
+            <p>The capital of Belarus and its largest cultural and economic center. A city with more than 950 years of history. Main attractions: the National Library (one of the largest in the world), the Upper Town, the Trinity Suburb, the Holy Spirit Cathedral and the City Hall.</p>
+          </div>
+        </div>
+
+        <div class="city-card">
+          <div class="city-image">
+            <img src="https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=800&q=80" alt="Brest Fortress" />
+          </div>
+          <div class="city-info">
+            <h3>Brest</h3>
+            <p>A hero city in western Belarus. The legendary Brest Fortress was the first to face the attack in June 1941. The Kholm Gate is the main symbol of the fortress. It is also home to one of the first street lanterns in Europe.</p>
+          </div>
+        </div>
+
+        <div class="city-card">
+          <div class="city-image">
+            <img src="https://images.unsplash.com/photo-1597237230287-73b2cb3c3c18?w=800&q=80" alt="Old Castle in Grodno" />
+          </div>
+          <div class="city-info">
+            <h3>Grodno</h3>
+            <p>One of the oldest cities in the country, known as the "western gate of Belarus". Its main attraction is the Old Castle (11th–19th centuries) and the New Castle. It is also famous for the Kalozha Church (12th century) and the Great Choral Synagogue.</p>
+          </div>
+        </div>
+
+        <div class="city-card">
+          <div class="city-image">
+            <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?w=800&q=80" alt="Holy Resurrection Church in Vitebsk" />
+          </div>
+          <div class="city-info">
+            <h3>Vitebsk</h3>
+            <p>The birthplace of Marc Chagall and the home of the famous "Slavianski Bazaar" festival. Main attractions: the Holy Resurrection Church and the City Hall on Resurrection Square, as well as the Assumption Cathedral.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cuisine -->
+  <section id="cuisine" class="cuisine">
+    <div class="cuisine-inner">
+      <h2 class="section-title">National Cuisine</h2>
+
+      <div class="cuisine-grid">
+        <div class="dish">
+          <h4>Draniki</h4>
+          <p>Potato pancakes — the calling card of Belarusian cuisine. Made from grated potato and fried in a pan.</p>
+        </div>
+        <div class="dish">
+          <h4>Borsch</h4>
+          <p>A rich beetroot soup. The Belarusian version is often cooked without cabbage, using a smoked meat broth.</p>
+        </div>
+        <div class="dish">
+          <h4>Kolduny</h4>
+          <p>Potato dumplings filled with minced meat. Served hot, often with sour cream.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fun Facts -->
+  <section id="facts" class="facts-section">
+    <h2 class="section-title">Fun Facts</h2>
+    <p class="section-subtitle">A few surprising things about Belarus</p>
+
+    <div class="facts-list">
+      <div class="fact-item">
+        <span class="fact-number">1</span>
+        <p>Belarus is home to the <strong>largest ancient forest in Europe</strong> — Belovezhskaya Pushcha — as well as the world's largest population of European bison.</p>
+      </div>
+      <div class="fact-item">
+        <span class="fact-number">2</span>
+        <p>The country has <strong>two centers of Europe</strong>: one geographic, one geodetic. Both are marked with commemorative signs.</p>
+      </div>
+      <div class="fact-item">
+        <span class="fact-number">3</span>
+        <p>The National Library in Minsk, opened in 2006, is <strong>one of the largest in the world</strong>.</p>
+      </div>
+    </div>
+
+    <!-- Встроенное видео прямо на странице (без перехода) -->
+    <div class="video-embed" aria-label="Видео о Беларуси">
+      <iframe
+        src="https://www.youtube.com/embed/l_An97vwgt4"
+        title="Belarus video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Belarus — a country worth discovering</p>
+    <p>Made with <span class="heart">❤</span> for everyone who loves this land</p>
+  </footer>
+
+</body>
+</html>
